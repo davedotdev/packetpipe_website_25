@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Packetpipe Ltd - Software Development, SaaS Products, Electronics R&D, and IT Infrastructure Solutions">
+    <title>Packetpipe Ltd</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #24B8D1;
+            --primary-dark: #1a9db3;
+            --primary-light: #5fd4e8;
+            --dark-grey: #424242;
+            --darker-grey: #2c2c2c;
+            --light-grey: #f8f9fa;
+            --border-color: #e1e4e8;
+            --text-color: #2c3e50;
+            --text-light: #64748b;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes gradientShift {
+            0%, 100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--text-color);
+            line-height: 1.7;
+            background: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            width: 100%;
+        }
+
+        /* Header Styles */
+        header {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid rgba(36, 184, 209, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        header:hover::after {
+            opacity: 1;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.25rem 0;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            height: 55px;
+            width: auto;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+            filter: drop-shadow(0 4px 8px rgba(36, 184, 209, 0.2));
+        }
+
+        /* Hero Section */
+        main {
+            flex: 1;
+            position: relative;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 6rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -10%;
+            width: 120%;
+            height: 150%;
+            background: radial-gradient(circle at center, rgba(36, 184, 209, 0.03) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3.75rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--dark-grey) 0%, var(--primary-color) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            color: var(--text-light);
+            font-weight: 400;
+            max-width: 700px;
+            margin: 0 auto;
+            letter-spacing: -0.01em;
+        }
+
+        /* About Section */
+        .about-section {
+            max-width: 900px;
+            margin: 0 auto 4rem;
+            text-align: center;
+            padding: 0 2rem;
+        }
+
+        .about-section p {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: var(--text-light);
+            font-weight: 400;
+        }
+
+        /* Services Section */
+        .services-wrapper {
+            padding: 2rem 0 4rem;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02), 0 12px 24px rgba(0, 0, 0, 0.04);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.6s ease-out backwards;
+        }
+
+        .service-card:nth-child(1) { animation-delay: 0.1s; }
+        .service-card:nth-child(2) { animation-delay: 0.2s; }
+        .service-card:nth-child(3) { animation-delay: 0.3s; }
+        .service-card:nth-child(4) { animation-delay: 0.4s; }
+        .service-card:nth-child(5) { animation-delay: 0.5s; }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(36, 184, 209, 0.05) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+
+        .service-card:hover::after {
+            opacity: 1;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08), 0 24px 48px rgba(36, 184, 209, 0.12);
+            border-color: rgba(36, 184, 209, 0.2);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark-grey);
+            margin-bottom: 1rem;
+            letter-spacing: -0.01em;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            font-size: 1rem;
+            line-height: 1.8;
+            font-weight: 400;
+        }
+
+        .service-card a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .service-card a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .service-card a:hover {
+            color: var(--primary-dark);
+        }
+
+        .service-card a:hover::after {
+            width: 100%;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            border-radius: 24px;
+            padding: 4rem 3rem;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.04), 0 24px 48px rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            margin-bottom: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--primary-light), var(--primary-color));
+            background-size: 200% 100%;
+            animation: gradientShift 3s ease infinite;
+        }
+
+        .contact-section h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--dark-grey) 0%, var(--primary-color) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 3rem;
+            text-align: center;
+            letter-spacing: -0.02em;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(36, 184, 209, 0.1);
+        }
+
+        .contact-item label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .contact-item a {
+            font-size: 1.25rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            letter-spacing: -0.01em;
+        }
+
+        .contact-item a:hover {
+            color: var(--primary-dark);
+            transform: translateX(4px);
+        }
+
+        .contact-item span {
+            font-size: 1.25rem;
+            color: var(--dark-grey);
+            font-weight: 600;
+            letter-spacing: -0.01em;
+        }
+
+        /* Footer Styles */
+        footer {
+            background: linear-gradient(135deg, #1a1a1a 0%, var(--darker-grey) 50%, #1a1a1a 100%);
+            color: white;
+            padding: 4rem 0 2rem;
+            margin-top: auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--primary-color), var(--primary-light), var(--primary-color), transparent);
+            background-size: 200% 100%;
+            animation: gradientShift 4s ease infinite;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+            text-align: left;
+        }
+
+        .footer-section h4 {
+            color: var(--primary-color);
+            font-size: 0.875rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .footer-section p {
+            font-size: 0.95rem;
+            line-height: 2;
+            opacity: 0.85;
+            color: white;
+            font-weight: 400;
+        }
+
+        .footer-section a {
+            font-size: 0.95rem;
+            line-height: 2;
+            opacity: 0.85;
+            color: white;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            font-weight: 400;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-light);
+            opacity: 1;
+            transform: translateX(4px);
+        }
+
+        .footer-logos {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            margin-top: 1rem;
+            align-items: flex-start;
+        }
+
+        .footer-logo {
+            height: 80px;
+            width: 240px;
+            object-fit: contain;
+            opacity: 0.9;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            margin: -10px 0;
+        }
+
+        .footer-logo:hover {
+            opacity: 1;
+            transform: scale(1.1);
+            filter: drop-shadow(0 4px 12px rgba(36, 184, 209, 0.5));
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+            font-size: 0.875rem;
+            opacity: 0.7;
+        }
+
+        .footer-bottom p {
+            margin: 0.5rem 0;
+            font-weight: 300;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero p {
+                font-size: 1.25rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 4rem 0 3rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.125rem;
+            }
+
+            .services {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-section {
+                padding: 3rem 2rem;
+            }
+
+            .contact-section h2 {
+                font-size: 2rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-logos {
+                align-items: center;
+            }
+
+            .logo {
+                height: 45px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1.25rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .contact-section {
+                padding: 2.5rem 1.5rem;
+            }
+
+            .contact-section h2 {
+                font-size: 1.75rem;
+            }
+
+            .contact-grid {
+                gap: 1.5rem;
+            }
+
+            .service-card {
+                padding: 2rem;
+            }
+
+            .logo {
+                height: 40px;
+            }
+        }
+
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="navbar-brand">
+                    <img src="packetpipe_logo.svg" alt="Packetpipe Ltd" class="logo">
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <div class="container">
+                    <h1>Engineering Excellence, Delivered</h1>
+                    <p>Software, Infrastructure & Innovation Solutions</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="about-section">
+            <p>We partner with clients on bespoke projects, from traditional commissions to equity-sharing arrangements, and develop our own products. With decades of expertise in software development, IT infrastructure and electro-mechanical systems.</p>
+        </div>
+
+        <section class="services-wrapper">
+            <div class="container">
+                <div class="services">
+                    <div class="service-card">
+                        <h3>Software Development</h3>
+                        <p>Small to medium scale SaaS products built with modern architecture and engineering best practices.</p>
+                    </div>
+
+                    <div class="service-card">
+                        <h3>Events Management</h3>
+                        <p>Built and operate the ticketing and event platform for <a href="https://discos4grownups.com" target="_blank" rel="noopener">Discos4Grownups.com</a></p>
+                    </div>
+
+                    <div class="service-card">
+                        <h3>R&D Specialists</h3>
+                        <p>Electronics and embedded systems research, development and prototyping.</p>
+                    </div>
+
+                    <div class="service-card">
+                        <h3>Infrastructure Solutions</h3>
+                        <p>CCTV, secure networking and IT infrastructure for local government and enterprise.</p>
+                    </div>
+
+                    <div class="service-card">
+                        <h3>Micro SaaS Platforms</h3>
+                        <p>Create and operate micro SaaS products like <a href="https://dumperoo.com" target="_blank" rel="noopener">Dumperoo.com</a>, a free developer tool.</p>
+                    </div>
+                </div>
+
+                <div class="contact-section">
+                    <h2>Get In Touch</h2>
+                    <div class="contact-grid">
+                        <div class="contact-item">
+                            <label>Email</label>
+                            <a href="mailto:sales@packetpipe.net">sales@packetpipe.net</a>
+                        </div>
+                        <div class="contact-item">
+                            <label>Phone</label>
+                            <a href="tel:+442039301987">020 3930 1987</a>
+                        </div>
+                        <div class="contact-item">
+                            <label>Company Number</label>
+                            <span>12105604</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <p>Packetpipe Ltd</p>
+                    <p>UK Registered Company</p>
+                    <p>Company No. 12105604</p>
+                    <p>England and Wales</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: <a href="mailto:sales@packetpipe.net">sales@packetpipe.net</a></p>
+                    <p>Phone: <a href="tel:+442039301987">020 3930 1987</a></p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Our Brands</h4>
+                    <div class="footer-logos">
+                        <a href="https://discos4grownups.com" target="_blank" rel="noopener" title="Discos4Grownups">
+                            <img src="logo_d4g_horizontal.png" alt="Discos4Grownups" class="footer-logo">
+                        </a>
+                        <a href="https://dumperoo.com" target="_blank" rel="noopener" title="Dumperoo">
+                            <img src="logo_dumperoo_horizontal.png" alt="Dumperoo" class="footer-logo">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Packetpipe Ltd. All rights reserved.</p>
+                <p>Registered in England and Wales. Company Number 12105604</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
