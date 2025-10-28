@@ -305,6 +305,134 @@
             width: 100%;
         }
 
+        /* Dumperoo Section */
+        .dumperoo-section {
+            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #f8fafc 100%);
+            border-radius: 24px;
+            padding: 4rem 3rem;
+            margin-bottom: 4rem;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.04), 0 24px 48px rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dumperoo-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--primary-light), var(--primary-color));
+            background-size: 200% 100%;
+            animation: gradientShift 3s ease infinite;
+        }
+
+        .dumperoo-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .dumperoo-logo {
+            height: 60px;
+            width: auto;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease;
+            filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1));
+        }
+
+        .dumperoo-logo:hover {
+            transform: scale(1.05);
+        }
+
+        .dumperoo-header h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--dark-grey) 0%, var(--primary-color) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 0;
+            letter-spacing: -0.02em;
+        }
+
+        .dumperoo-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .dumperoo-intro {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            color: var(--text-light);
+            text-align: center;
+            margin-bottom: 3rem;
+            font-weight: 400;
+        }
+
+        .dumperoo-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .dumperoo-feature {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02), 0 12px 24px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            transition: all 0.3s ease;
+        }
+
+        .dumperoo-feature:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(36, 184, 209, 0.1);
+            border-color: rgba(36, 184, 209, 0.2);
+        }
+
+        .dumperoo-feature h4 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--dark-grey);
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.01em;
+        }
+
+        .dumperoo-feature p {
+            color: var(--text-light);
+            font-size: 1rem;
+            line-height: 1.7;
+            margin: 0;
+            font-weight: 400;
+        }
+
+        .dumperoo-cta {
+            text-align: center;
+        }
+
+        .dumperoo-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.125rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(36, 184, 209, 0.3);
+            letter-spacing: -0.01em;
+        }
+
+        .dumperoo-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(36, 184, 209, 0.4);
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+        }
+
         /* Contact Section */
         .contact-section {
             background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
@@ -521,6 +649,18 @@
                 grid-template-columns: 1fr;
             }
 
+            .dumperoo-section {
+                padding: 3rem 2rem;
+            }
+
+            .dumperoo-header h2 {
+                font-size: 2rem;
+            }
+
+            .dumperoo-intro {
+                font-size: 1.125rem;
+            }
+
             .contact-section {
                 padding: 3rem 2rem;
             }
@@ -554,6 +694,22 @@
 
             .hero p {
                 font-size: 1rem;
+            }
+
+            .dumperoo-section {
+                padding: 2.5rem 1.5rem;
+            }
+
+            .dumperoo-header h2 {
+                font-size: 1.75rem;
+            }
+
+            .dumperoo-intro {
+                font-size: 1rem;
+            }
+
+            .dumperoo-logo {
+                height: 50px;
             }
 
             .contact-section {
@@ -631,10 +787,32 @@
                         <h3>Infrastructure Solutions</h3>
                         <p>CCTV, secure networking and IT infrastructure for local government and enterprise.</p>
                     </div>
+                </div>
 
-                    <div class="service-card">
-                        <h3>Micro SaaS Platforms</h3>
-                        <p>Create and operate micro SaaS products like <a href="https://dumperoo.com" target="_blank" rel="noopener">Dumperoo.com</a>, a free developer tool.</p>
+                <div class="dumperoo-section">
+                    <div class="dumperoo-header">
+                        <img src="logo_dumperoo_horizontal.png" alt="Dumperoo" class="dumperoo-logo">
+                        <h2>HTTP Request Debugging Made Simple</h2>
+                    </div>
+                    <div class="dumperoo-content">
+                        <p class="dumperoo-intro">Dumperoo is our free, web-based tool for developers who need to capture and inspect HTTP requests in real-time. Perfect for webhook debugging, API testing, and integration development.</p>
+                        <div class="dumperoo-features">
+                            <div class="dumperoo-feature">
+                                <h4>Quick Capture</h4>
+                                <p>Test endpoints directly in your browser with prettified response viewing.</p>
+                            </div>
+                            <div class="dumperoo-feature">
+                                <h4>Persistent Sessions</h4>
+                                <p>24-hour session history for webhook monitoring and integration testing.</p>
+                            </div>
+                            <div class="dumperoo-feature">
+                                <h4>Terminal Integration</h4>
+                                <p>Command-line interface using curl for CI/CD pipelines and terminal workflows.</p>
+                            </div>
+                        </div>
+                        <div class="dumperoo-cta">
+                            <a href="https://dumperoo.com" target="_blank" rel="noopener" class="dumperoo-button">Try Dumperoo Free</a>
+                        </div>
                     </div>
                 </div>
 
