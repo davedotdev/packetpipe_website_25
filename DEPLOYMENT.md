@@ -22,8 +22,18 @@ sudo chown -R $USER:$USER /var/www/packetpipe.com
 ### 3. Upload Website Files
 ```bash
 # Copy your files to the server
-scp index.html *.svg *.png user@your-server:/var/www/packetpipe.com/
+scp index.html *.svg *.png favicon.ico user@your-server:/var/www/packetpipe.com/
 ```
+
+**Favicon and social sharing assets:** `favicon.svg`/`.ico`/`-32.png`, `icon-192.png`, `icon-512.png`, `apple-touch-icon.png` and `og-image.png` must be uploaded alongside `index.html`. The OG card is rendered from `og-card.html`; to regenerate it after a change:
+
+```bash
+python3 -m http.server 8765 --bind 127.0.0.1 &
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --disable-gpu --hide-scrollbars \
+  --window-size=1200,630 --virtual-time-budget=6000 --screenshot=og-image.png http://127.0.0.1:8765/og-card.html
+```
+
+After deploying, clear the cached preview with the [Facebook Sharing Debugger](https://developers.facebook.com/tools/debug/) or [LinkedIn Post Inspector](https://www.linkedin.com/post-inspector/).
 
 ### 4. Install Initial NGINX Configuration (HTTP Only)
 ```bash

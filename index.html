@@ -3,8 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Packetpipe Ltd - Software Development, SaaS Products, Electronics R&D, and IT Infrastructure Solutions">
+    <meta name="description" content="Packetpipe Ltd - Software development, radio playout software (Radeeo), Pump Radio, TicketBaron ticketing, AV and equipment hire, KV2 Audio reseller, electronics R&D and IT infrastructure.">
     <title>Packetpipe Ltd</title>
+    <link rel="canonical" href="https://packetpipe.com/">
+    <meta name="theme-color" content="#24B8D1">
+
+    <!-- Favicons -->
+    <link rel="icon" href="/favicon.ico" sizes="32x32">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+    <link rel="icon" href="/icon-192.png" type="image/png" sizes="192x192">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <!-- Open Graph / Facebook / LinkedIn -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Packetpipe Ltd">
+    <meta property="og:url" content="https://packetpipe.com/">
+    <meta property="og:title" content="Packetpipe Ltd - Engineering Excellence, Delivered">
+    <meta property="og:description" content="Software development, radio playout and broadcasting (Radeeo, Pump Radio), TicketBaron ticketing, AV and equipment hire, KV2 Audio reseller, electronics R&D and IT infrastructure. UK based.">
+    <meta property="og:image" content="https://packetpipe.com/og-image.png">
+    <meta property="og:image:secure_url" content="https://packetpipe.com/og-image.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Packetpipe Ltd - Engineering Excellence, Delivered. Our brands: Radeeo, Pump Radio, TicketBaron and KV2 Audio.">
+    <meta property="og:locale" content="en_GB">
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Packetpipe Ltd - Engineering Excellence, Delivered">
+    <meta name="twitter:description" content="Software, broadcast, events and infrastructure. Home of Radeeo, Pump Radio and TicketBaron, and a KV2 Audio reseller.">
+    <meta name="twitter:image" content="https://packetpipe.com/og-image.png">
+    <meta name="twitter:image:alt" content="Packetpipe Ltd - Engineering Excellence, Delivered">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -200,7 +230,7 @@
 
         .services {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
             margin-bottom: 4rem;
         }
@@ -303,6 +333,285 @@
 
         .service-card a:hover::after {
             width: 100%;
+        }
+
+        /* Brands Section */
+        .brands-section {
+            margin-bottom: 4rem;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-heading h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--dark-grey) 0%, var(--primary-color) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .section-heading p {
+            font-size: 1.125rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .brands-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .brand-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02), 0 12px 24px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: fadeInUp 0.6s ease-out backwards;
+        }
+
+        .brand-card:nth-child(1) { animation-delay: 0.1s; }
+        .brand-card:nth-child(2) { animation-delay: 0.2s; }
+        .brand-card:nth-child(3) { animation-delay: 0.3s; }
+
+        .brand-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08), 0 24px 48px rgba(36, 184, 209, 0.12);
+            border-color: rgba(36, 184, 209, 0.2);
+        }
+
+        .brand-logo-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 150px;
+            padding: 2rem;
+            background: var(--light-grey);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+        }
+
+        .brand-logo-wrap img {
+            max-height: 90px;
+            max-width: 100%;
+            width: auto;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .brand-logo-wrap img.brand-logo-square {
+            max-height: 100px;
+            border-radius: 20px;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .brand-card:hover .brand-logo-wrap img {
+            transform: scale(1.05);
+        }
+
+        .brand-body {
+            padding: 2rem 2.5rem 2.5rem;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .brand-body h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark-grey);
+            margin-bottom: 0.25rem;
+            letter-spacing: -0.01em;
+        }
+
+        .brand-tagline {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 1rem;
+        }
+
+        .brand-body p {
+            color: var(--text-light);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 1.25rem;
+        }
+
+        .brand-tags {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.75rem;
+        }
+
+        .brand-tags li {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--dark-grey);
+            background: rgba(36, 184, 209, 0.08);
+            border: 1px solid rgba(36, 184, 209, 0.15);
+            border-radius: 999px;
+            padding: 0.3rem 0.8rem;
+        }
+
+        .brand-link {
+            margin-top: auto;
+            align-self: flex-start;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .brand-link:hover {
+            color: var(--primary-dark);
+            transform: translateX(4px);
+        }
+
+        /* Events & Hire Section */
+        .hire-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, var(--darker-grey) 60%, #1f2a2d 100%);
+            border-radius: 24px;
+            padding: 4rem 3rem;
+            margin-bottom: 4rem;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.04), 0 24px 48px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            color: white;
+        }
+
+        .hire-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--primary-light), var(--primary-color));
+            background-size: 200% 100%;
+            animation: gradientShift 3s ease infinite;
+        }
+
+        .hire-grid {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hire-text h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 1.25rem;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+
+        .hire-text p {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            opacity: 0.85;
+            margin-bottom: 1.5rem;
+        }
+
+        .hire-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .hire-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            font-size: 1rem;
+            font-weight: 500;
+            opacity: 0.9;
+        }
+
+        .hire-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.55em;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+        }
+
+        .hire-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.125rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(36, 184, 209, 0.3);
+            letter-spacing: -0.01em;
+        }
+
+        .hire-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(36, 184, 209, 0.4);
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+        }
+
+        .hire-partner {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .hire-partner:hover {
+            border-color: rgba(140, 193, 69, 0.5);
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .hire-partner img {
+            width: 100%;
+            max-width: 260px;
+            height: auto;
+            margin: 0 auto 1.5rem;
+            display: block;
+        }
+
+        .hire-partner-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #8cc145;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.75rem;
+        }
+
+        .hire-partner p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            opacity: 0.8;
+            margin: 0;
         }
 
         /* Why Section */
@@ -617,6 +926,26 @@
                 font-size: 2rem;
             }
 
+            .section-heading h2 {
+                font-size: 2rem;
+            }
+
+            .hire-section {
+                padding: 3rem 2rem;
+            }
+
+            .hire-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hire-text h2 {
+                font-size: 2rem;
+            }
+
+            .hire-list {
+                grid-template-columns: 1fr;
+            }
+
             .why-number {
                 font-size: 2rem;
             }
@@ -662,6 +991,22 @@
 
             .why-section h2 {
                 font-size: 1.75rem;
+            }
+
+            .section-heading h2 {
+                font-size: 1.75rem;
+            }
+
+            .hire-section {
+                padding: 2.5rem 1.5rem;
+            }
+
+            .hire-text h2 {
+                font-size: 1.75rem;
+            }
+
+            .brand-body {
+                padding: 1.75rem 1.5rem 2rem;
             }
 
             .why-number {
@@ -717,13 +1062,13 @@
             <div class="hero-content">
                 <div class="container">
                     <h1>Engineering Excellence, Delivered</h1>
-                    <p>Software, Infrastructure & Innovation Solutions</p>
+                    <p>Software, Broadcast, Events &amp; Infrastructure Solutions</p>
                 </div>
             </div>
         </section>
 
         <div class="about-section">
-            <p>We partner with clients on bespoke projects, from traditional commissions to equity-sharing arrangements, and develop our own products. With decades of expertise in software development, IT infrastructure and electro-mechanical systems.</p>
+            <p>We partner with clients on bespoke projects, from traditional commissions to equity-sharing arrangements, and develop our own products. With decades of expertise in software development, IT infrastructure and electro-mechanical systems, we also bring that engineering mindset to radio broadcasting, live events and professional audio.</p>
         </div>
 
         <section class="services-wrapper">
@@ -743,7 +1088,99 @@
                         <h3>Infrastructure Solutions</h3>
                         <p>Data centre and campus networking for local government and enterprise, including secure infrastructure and CCTV systems.</p>
                     </div>
+
+                    <div class="service-card">
+                        <h3>Events, AV &amp; Radio</h3>
+                        <p>AV hire, dry and wet equipment hire, audio, lighting and radio consulting. Industry standard kit for events, backed by people who know how to run it.</p>
+                    </div>
                 </div>
+
+                <!-- Our Products & Brands -->
+                <section class="brands-section" id="brands">
+                    <div class="section-heading">
+                        <h2>Our Products &amp; Brands</h2>
+                        <p>Software and services we build, run and stand behind.</p>
+                    </div>
+                    <div class="brands-grid">
+                        <div class="brand-card">
+                            <div class="brand-logo-wrap">
+                                <img src="logo_radeeo.png" alt="Radeeo">
+                            </div>
+                            <div class="brand-body">
+                                <h3>Radeeo</h3>
+                                <div class="brand-tagline">Web-native radio playout</div>
+                                <p>Hosted and self-hosted radio playout software, designed from the ground up for the web. Built for live DJs on decks and traditional presenters running playlists alike, Radeeo handles adverts, scheduled shows, music reporting, automated backups and deployments.</p>
+                                <ul class="brand-tags">
+                                    <li>Hosted or self-hosted</li>
+                                    <li>Live &amp; playlist shows</li>
+                                    <li>Ad scheduling</li>
+                                    <li>Music reporting</li>
+                                    <li>Automated backups</li>
+                                </ul>
+                                <a href="https://radeeo.com" target="_blank" rel="noopener" class="brand-link">Visit Radeeo.com &rarr;</a>
+                            </div>
+                        </div>
+
+                        <div class="brand-card">
+                            <div class="brand-logo-wrap">
+                                <img src="logo_pumpradio.png" alt="Pump Radio" class="brand-logo-square">
+                            </div>
+                            <div class="brand-body">
+                                <h3>Pump Radio</h3>
+                                <div class="brand-tagline">A night out, but on the radio</div>
+                                <p>A station for Generation X that enjoyed going out. Live DJs, curated playlists and uplifting music throughout your day. Broadcasting on DAB in the Midlands and on Mixcloud, and running entirely on Radeeo.</p>
+                                <ul class="brand-tags">
+                                    <li>DAB Midlands</li>
+                                    <li>Mixcloud</li>
+                                    <li>Live DJs</li>
+                                    <li>Powered by Radeeo</li>
+                                </ul>
+                                <a href="https://pumpradio.net" target="_blank" rel="noopener" class="brand-link">Listen at PumpRadio.net &rarr;</a>
+                            </div>
+                        </div>
+
+                        <div class="brand-card">
+                            <div class="brand-logo-wrap">
+                                <img src="logo_ticketbaron.png" alt="TicketBaron.com">
+                            </div>
+                            <div class="brand-body">
+                                <h3>TicketBaron</h3>
+                                <div class="brand-tagline">Online ticket agency</div>
+                                <p>An online ticket agency with apps on the Apple App Store and Google Play. Friendlier for organisers and more faithful to ticket buyers, with the tools event promoters actually need.</p>
+                                <ul class="brand-tags">
+                                    <li>iOS &amp; Android apps</li>
+                                    <li>Organiser friendly</li>
+                                    <li>Fair to buyers</li>
+                                </ul>
+                                <a href="https://ticketbaron.com" target="_blank" rel="noopener" class="brand-link">Visit TicketBaron.com &rarr;</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Events, AV & Equipment Hire -->
+                <section class="hire-section" id="hire">
+                    <div class="hire-grid">
+                        <div class="hire-text">
+                            <h2>Events, AV &amp; Equipment Hire</h2>
+                            <p>Packetpipe's remit goes beyond software. We supply and support industry standard equipment for events, from dry hire of individual items to fully crewed wet hire, and offer audio, lighting and radio consulting drawn from real broadcast and live experience.</p>
+                            <ul class="hire-list">
+                                <li>AV hire for events</li>
+                                <li>Dry &amp; wet equipment hire</li>
+                                <li>Professional audio</li>
+                                <li>Lighting</li>
+                                <li>Radio &amp; broadcast consulting</li>
+                                <li>Industry standard kit</li>
+                            </ul>
+                            <a href="mailto:sales@packetpipe.net?subject=Equipment%20hire%20enquiry" class="hire-button">Enquire About Hire</a>
+                        </div>
+                        <div class="hire-partner">
+                            <img src="logo_kv2.png" alt="KV2 Audio">
+                            <div class="hire-partner-label">Authorised Reseller</div>
+                            <p>We are a KV2 Audio reseller, supplying loudspeaker systems built for accuracy and impact. Ask us about sales, hire and system design.</p>
+                        </div>
+                    </div>
+                </section>
 
                 <!-- Why Work With Us Section -->
                 <div class="why-section">
@@ -800,6 +1237,13 @@
                 </div>
 
                 <div class="footer-section">
+                    <h4>Our Brands</h4>
+                    <p><a href="https://radeeo.com" target="_blank" rel="noopener">Radeeo.com</a></p>
+                    <p><a href="https://pumpradio.net" target="_blank" rel="noopener">PumpRadio.net</a></p>
+                    <p><a href="https://ticketbaron.com" target="_blank" rel="noopener">TicketBaron.com</a></p>
+                </div>
+
+                <div class="footer-section">
                     <h4>Contact</h4>
                     <p>Email: <a href="mailto:sales@packetpipe.net">sales@packetpipe.net</a></p>
                     <p>Phone: <a href="tel:+442039301987">020 3930 1987</a></p>
@@ -807,7 +1251,7 @@
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2025 Packetpipe Ltd. All rights reserved.</p>
+                <p>&copy; 2026 Packetpipe Ltd. All rights reserved.</p>
                 <p>Registered in England and Wales. Company Number 12105604</p>
             </div>
         </div>
